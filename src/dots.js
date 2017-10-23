@@ -52,7 +52,7 @@ export class Dots extends React.Component {
     });
 
     return (
-      <ul className={this.props.dotsClass} style={{display: 'block'}}>
+      <ul className={this.props.dotsClass}>
         {dots}
       </ul>
     );
