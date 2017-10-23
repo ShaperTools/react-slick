@@ -10,7 +10,7 @@ var checkSpecKeys = function (spec, keysArray) {
 
 export var getTrackCSS = function(spec) {
   checkSpecKeys(spec, [
-    'left', 'variableWidth', 'slideCount', 'slidesToShow', 'slideWidth'
+    'left', 'variableWidth', 'slideCount', 'slidesToShow', 'slideWidth', 'infinite'
   ]);
 
   var trackWidth, trackHeight;
@@ -18,7 +18,9 @@ export var getTrackCSS = function(spec) {
   const trackChildren = (spec.slideCount + 2 * spec.slidesToShow);
 
   if (!spec.vertical) {
-    if (spec.variableWidth) {
+    if (!spec.infinite) {
+      trackWidth = spec.slideCount * spec.slideWidth;
+    } else if (spec.variableWidth) {
       trackWidth = (spec.slideCount + 2*spec.slidesToShow) * spec.slideWidth;
     } else if (spec.centerMode) {
       trackWidth = (spec.slideCount + 2*(spec.slidesToShow + 1)) * spec.slideWidth;
