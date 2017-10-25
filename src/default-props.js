@@ -23,6 +23,7 @@ var defaultProps = {
     infinite: true,
     initialSlide: 0,
     lazyLoad: false,
+    padSlides: false,
     pauseOnHover: true,
     responsive: null,
     rtl: false,
@@ -43,7 +44,7 @@ var defaultProps = {
     edgeEvent: null,
     init: null,
     swipeEvent: null,
-    // nextArrow, prevArrow are react componets
+    // nextArrow, prevArrow are react components
     nextArrow: null,
     prevArrow: null
 };

@@ -88,6 +88,15 @@ export default class Slider extends React.Component {
       return !!child
     })
 
+    if (settings.padSlides) {
+      const numberToPad = settings.slidesToShow - (children.length % settings.slidesToShow);
+      const paddingSlides = [];
+      for (let i = numberToPad; i >= 1; i--) {
+        paddingSlides.push(React.createElement('div', {key: 'paddingSlide-' + i}));
+      }
+      children = children.concat(paddingSlides);
+    }
+
     if (settings === 'unslick') {
       // if 'unslick' responsive breakpoint setting used, just return the <Slider> tag nested HTML
       return (
