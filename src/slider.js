@@ -89,7 +89,7 @@ export default class Slider extends React.Component {
     })
 
     if (settings.padSlides) {
-      const numberToPad = settings.slidesToShow - (children.length % settings.slidesToShow);
+      const numberToPad = (children.length % settings.slidesToShow) == 0 ? 0 : settings.slidesToShow - (children.length % settings.slidesToShow);
       const paddingSlides = [];
       for (let i = numberToPad; i >= 1; i--) {
         paddingSlides.push(React.createElement('div', {key: 'paddingSlide-' + i}));
